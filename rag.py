@@ -17,10 +17,10 @@ import os
 import prompts as pt
 
 
-os.environ["LANGCHAIN_TRACING"] = st.secrets["LANGCHAIN_TRACING"]
-os.environ["LANGCHAIN_API_KEY"] = st.secrets["LANGCHAIN_API_KEY"]
-os.environ["LANGCHAIN_ENDPOINT"] = st.secrets["LANGCHAIN_ENDPOINT"]
-os.environ["LANGCHAIN_PROJECT"] = st.secrets["LANGCHAIN_PROJECT"]
+os.environ["LANGSMITH_TRACING"] = st.secrets["LANGSMITH_TRACING_V2"]
+os.environ["LANGSMITH_API_KEY"] = st.secrets["LANGSMITH_API_KEY"]
+os.environ["LANGSMITH_ENDPOINT"] = st.secrets["LANGSMITH_ENDPOINT"]
+os.environ["LANGSMITH_PROJECT"] = st.secrets["LANGSMITH_PROJECT"]
 os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
 os.environ["TAVILY_API_KEY"] = st.secrets["TAVILY_API_KEY"]
 
