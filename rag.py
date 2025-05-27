@@ -17,7 +17,7 @@ import os
 import prompts as pt
 
 
-os.environ["LANGSMITH_TRACING"] = st.secrets["LANGSMITH_TRACING_V2"]
+os.environ["LANGSMITH_TRACING"] = st.secrets["LANGSMITH_TRACING"]
 os.environ["LANGSMITH_API_KEY"] = st.secrets["LANGSMITH_API_KEY"]
 os.environ["LANGSMITH_ENDPOINT"] = st.secrets["LANGSMITH_ENDPOINT"]
 os.environ["LANGSMITH_PROJECT"] = st.secrets["LANGSMITH_PROJECT"]
