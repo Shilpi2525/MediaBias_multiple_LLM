@@ -1,6 +1,6 @@
 import streamlit as st
 import os
-from utils import graph_streamer
+from rag import graph_streamer
 
 IMAGE_ADDRESS = "https://bs-uploads.toptal.io/blackfish-uploads/components/open_graph_image/8957316/og_image/optimized/0919_Machines_and_Trust_Lina_Social-ac9acf8ebc252ec57a9a9014f6be62b2.png"
 
