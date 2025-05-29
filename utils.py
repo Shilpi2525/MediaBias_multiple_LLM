@@ -152,3 +152,20 @@ def graph_streamer_factory(primary_model: str, secondary_model: str):
             yield "- langchain-deepseek (for DeepSeek)\n"
         
         return fallback_streamer
+
+# Backward compatibility function for direct import
+async def graph_streamer(user_query: str, model="OpenAI-GPT4o"):
+    """Backward compatibility function to support legacy imports.
+    
+    This function creates a streamer using the specified model for both detection and classification.
+    
+    Args:
+        user_query (str): The topic to analyze
+        model (str): The model to use (defaults to OpenAI-GPT4o)
+    """
+    # Get a streamer using the same model for both detection and classification
+    streamer = graph_streamer_factory(model, model)
+    
+    # Forward all yielded content
+    async for chunk in streamer(user_query):
+        yield chunk
