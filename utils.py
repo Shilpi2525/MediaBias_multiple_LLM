@@ -47,7 +47,7 @@ tavily_client = TavilyClient(api_key=os.environ["TAVILY_API_KEY"])
 tavily_search = TavilySearchResults(max_results=MAX_RESULTS)
 
 # Bot state
-type BotState(MessagesState):
+class BotState(MessagesState):
     context: list[str]
     answers: str
 
