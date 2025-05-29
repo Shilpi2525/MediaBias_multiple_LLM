@@ -1,6 +1,6 @@
 import streamlit as st
 import os
-from rag import graph_streamer
+from utils import graph_streamer
 
 IMAGE_ADDRESS = "https://bs-uploads.toptal.io/blackfish-uploads/components/open_graph_image/8957316/og_image/optimized/0919_Machines_and_Trust_Lina_Social-ac9acf8ebc252ec57a9a9014f6be62b2.png"
 
@@ -8,7 +8,7 @@ st.title("BiasReader")
 st.image(IMAGE_ADDRESS)
 
 # Dropdowns to choose LLMs
-model_options = ['GPT-4o-mini', 'gemini-2.0-flash', 'claude-3-haiku-20240307', 'deepseek-chat', 'Llama']
+model_options = ['GPT-4o-mini', 'gemini-2.0-flash', 'claude-3-haiku-20240307', 'deepseek-chat']
 
 bias_model = st.selectbox("Select Model for Bias Detection", model_options, index=0)
 subbias_model = st.selectbox("Select Model for Subcategory Detection", model_options, index=1)
