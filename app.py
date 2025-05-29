@@ -17,4 +17,4 @@ user_text = st.text_input("Please Add Your Topic")
 
 if user_text:
     st.subheader("Bias Analysis")
-    #st.write_stream(graph_streamer(user_text, bias_model, subbias_model))
+    st.write_stream(graph_streamer(user_text, bias_model, subbias_model))
