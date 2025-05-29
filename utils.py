@@ -36,9 +36,9 @@ MAX_RESULTS = 5
 
 # LLM options
 llm_options = {
-    "OpenAI-GPT4o": ChatOpenAI(model="gpt-4o", temperature=0),
-    "Google-Gemini": ChatGoogleGenerativeAI(model="gemini-pro", temperature=0),
-    "Anthropic-Claude": ChatAnthropic(model="claude-3-opus-20240229", temperature=0),
+    "OpenAI-GPT4o": ChatOpenAI(model="GPT-4o-mini", temperature=0),
+    "Google-Gemini": ChatGoogleGenerativeAI(model="gemini-2.0-flash", temperature=0),
+    "Anthropic-Claude": ChatAnthropic(model="claude-3-haiku-20240307", temperature=0),
     "DeepSeek": ChatDeepSeek(model="deepseek-chat", temperature=0),
 }
 
