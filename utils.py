@@ -154,17 +154,30 @@ def graph_streamer_factory(primary_model: str, secondary_model: str):
         return fallback_streamer
 
 # Backward compatibility function for direct import
-async def graph_streamer(user_query: str, model="OpenAI-GPT4o"):
+async def graph_streamer(user_query: str, bias_model="GPT-4o-mini", subbias_model="gemini-2.0-flash"):
     """Backward compatibility function to support legacy imports.
     
-    This function creates a streamer using the specified model for both detection and classification.
+    This function creates a streamer using the specified models for detection and classification.
     
     Args:
         user_query (str): The topic to analyze
-        model (str): The model to use (defaults to OpenAI-GPT4o)
+        bias_model (str): The model to use for bias detection (defaults to GPT-4o-mini)
+        subbias_model (str): The model to use for bias classification (defaults to gemini-2.0-flash)
     """
-    # Get a streamer using the same model for both detection and classification
-    streamer = graph_streamer_factory(model, model)
+    # Map model names to the expected format
+    model_mapping = {
+        "GPT-4o-mini": "OpenAI-GPT4o",
+        "gemini-2.0-flash": "Google-Gemini",
+        "claude-3-haiku-20240307": "Anthropic-Claude",
+        "deepseek-chat": "DeepSeek"
+    }
+    
+    # Convert model names to the expected format
+    primary_model = model_mapping.get(bias_model, "OpenAI-GPT4o")
+    secondary_model = model_mapping.get(subbias_model, "Google-Gemini")
+    
+    # Get a streamer using the specified models
+    streamer = graph_streamer_factory(primary_model, secondary_model)
     
     # Forward all yielded content
     async for chunk in streamer(user_query):
