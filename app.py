@@ -8,7 +8,7 @@ st.title("BiasReader")
 st.image(IMAGE_ADDRESS)
 
 # Dropdowns to choose LLMs
-model_options = ['GPT-4o', 'Gemini-Pro', 'Claude-3', 'DeepSeek', 'Mixtral']
+model_options = ['GPT-4o-mini', 'gemini-2.0-flash', 'claude-3-haiku-20240307', 'deepseek-chat', 'Llama']
 
 bias_model = st.selectbox("Select Model for Bias Detection", model_options, index=0)
 subbias_model = st.selectbox("Select Model for Subcategory Detection", model_options, index=1)
@@ -17,4 +17,4 @@ user_text = st.text_input("Please Add Your Topic")
 
 if user_text:
     st.subheader("Bias Analysis")
-    st.write_stream(graph_streamer(user_text, bias_model, subbias_model))
+    #st.write_stream(graph_streamer(user_text, bias_model, subbias_model))
